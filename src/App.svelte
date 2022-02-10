@@ -1,21 +1,7 @@
 <script>
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "firebase/app";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  import { read_doc } from "$public/db.js";
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyAbbo9LFqfgxhV8f2VfRimG4aMHwN7Z6o8",
-    authDomain: "sharable-link-catalouge.firebaseapp.com",
-    projectId: "sharable-link-catalouge",
-    storageBucket: "sharable-link-catalouge.appspot.com",
-    messagingSenderId: "256012409269",
-    appId: "1:256012409269:web:0cf25cfe65ccb48ffae1fc",
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+  var x = new read_doc();
 </script>
 
 <main>
@@ -24,8 +10,11 @@
   <div>
     <input type="text" name="searchBar" id="idSearchBar" placeholder="Search" />
   </div>
-
-  <div />
+  <div>
+    <textarea name="ciao" id="" cols="30" rows="10"
+      >{x.read_doc("SLC", "link1")}</textarea
+    >
+  </div>
 </main>
 
 <style>

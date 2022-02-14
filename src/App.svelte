@@ -2,7 +2,6 @@
 import { readable } from "svelte/store";
 import { read_doc } from "./db.js";
 import { onMount } from 'svelte';
-import { doc } from "firebase/firestore/lite";
 
 let item;
 let url;

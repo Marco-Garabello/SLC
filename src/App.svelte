@@ -1,7 +1,18 @@
 <script>
-  import { read_doc } from "$public/db.js";
+import { readable } from "svelte/store";
+import { read_doc } from "./db.js";
+import { onMount } from 'svelte';
+import { doc } from "firebase/firestore/lite";
 
-  var x = new read_doc();
+let item;
+let url;
+onMount(async () => {
+    item = await read_doc("SLC", "link1");
+    url = item.url;
+    console.log(item.url);
+    
+});
+
 </script>
 
 <main>
@@ -11,9 +22,9 @@
     <input type="text" name="searchBar" id="idSearchBar" placeholder="Search" />
   </div>
   <div>
-    <textarea name="ciao" id="" cols="30" rows="10"
-      >{x.read_doc("SLC", "link1")}</textarea
-    >
+    <textarea name="ciao" id="" cols="30" rows="10">
+    {item}
+    </textarea>
   </div>
 </main>
 
